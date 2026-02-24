@@ -12,35 +12,24 @@
             --secondary: #4ecdc4;
             --dark: #2d3436;
             --light: #f8f9fa;
-            --gray: #636e72;
+            --gray: #94a0a4;
             --success: #00b894;
             --warning: #fdcb6e;
+            --danger: #ff7675;
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             min-height: 100vh;
             color: #fff;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            text-align: center;
-            padding: 40px 0;
-        }
-        
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+        header { text-align: center; padding: 30px 0; }
         .logo {
             font-size: 2.5rem;
             font-weight: 800;
@@ -50,389 +39,162 @@
             background-clip: text;
             margin-bottom: 10px;
         }
-        
-        .tagline {
-            color: var(--gray);
-            font-size: 1.1rem;
-        }
-        
-        .main-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 30px;
-        }
-        
-        @media (max-width: 768px) {
-            .main-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
+        .tagline { color: var(--gray); font-size: 1.05rem; }
+
+        .main-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px; }
+        @media (max-width: 768px) { .main-grid { grid-template-columns: 1fr; } }
+
         .card {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 20px;
-            padding: 30px;
+            padding: 24px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
         }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-        
-        .card-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .card-title span {
-            font-size: 1.5rem;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--gray);
-        }
-        
+
+        .card-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
+
+        .form-group { margin-bottom: 18px; }
+        label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--gray); }
+
         input, textarea, select {
             width: 100%;
-            padding: 14px 16px;
+            padding: 12px 14px;
             border: 2px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             background: rgba(255, 255, 255, 0.05);
             color: #fff;
             font-size: 1rem;
             font-family: inherit;
-            transition: border-color 0.3s, background 0.3s;
         }
-        
-        input:focus, textarea:focus, select:focus {
-            outline: none;
-            border-color: var(--primary);
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-        
-        select {
-            cursor: pointer;
-        }
-        
-        .btn {
-            padding: 14px 28px;
-            border: none;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
-        }
-        
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-        
-        .btn-group {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        
-        /* Star Rating */
-        .star-rating {
-            display: flex;
-            flex-direction: row-reverse;
-            gap: 8px;
-        }
-        
-        .star-rating input {
-            display: none;
-        }
-        
-        .star-rating label {
-            cursor: pointer;
-            font-size: 2rem;
-            color: rgba(255, 255, 255, 0.3);
-            transition: color 0.2s, transform 0.2s;
-        }
-        
-        .star-rating label:hover,
-        .star-rating label:hover ~ label,
-        .star-rating input:checked ~ label {
-            color: #ffd700;
-        }
-        
-        .star-rating label:hover {
-            transform: scale(1.2);
-        }
-        
-        /* Pros & Cons */
+        input:focus, textarea:focus, select:focus { outline: none; border-color: var(--primary); }
+        textarea { min-height: 110px; resize: vertical; }
+
+        .btn { padding: 12px 18px; border: none; border-radius: 12px; font-size: .95rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; }
+        .btn-secondary { background: rgba(255,255,255,.1); color: white; border: 2px solid rgba(255,255,255,.2); }
+        .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+        .star-rating { display: flex; flex-direction: row-reverse; gap: 8px; }
+        .star-rating input { display: none; }
+        .star-rating label { cursor: pointer; font-size: 2rem; color: rgba(255,255,255,.3); }
+        .star-rating label:hover, .star-rating label:hover ~ label, .star-rating input:checked ~ label { color: #ffd700; }
+
         .pros-cons {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 12px;
         }
-        
+        @media (max-width: 640px) {
+            .pros-cons { grid-template-columns: 1fr; }
+            .add-item { flex-wrap: wrap; }
+            .add-item input { min-width: 0; }
+        }
+
         .pro-con-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 12px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
-        
-        .pro-con-item.pro {
-            border-left: 3px solid var(--success);
-        }
-        
-        .pro-con-item.con {
-            border-left: 3px solid var(--primary);
-        }
-        
-        .pro-con-item button {
-            background: none;
-            border: none;
-            color: var(--gray);
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: color 0.2s;
-        }
-        
-        .pro-con-item button:hover {
-            color: var(--primary);
-        }
-        
-        .add-item {
-            display: flex;
+            justify-content: space-between;
             gap: 8px;
+            padding: 10px 12px;
+            background: rgba(255,255,255,.05);
+            border-radius: 10px;
+            margin-bottom: 8px;
+            word-break: break-word;
         }
-        
-        .add-item input {
-            flex: 1;
-            padding: 10px 14px;
-            font-size: 0.9rem;
-        }
-        
-        .add-item button {
-            padding: 10px 16px;
-            font-size: 0.9rem;
-        }
-        
-        /* AI Suggestions */
+        .pro-con-text { overflow-wrap: anywhere; }
+        .pro-con-item.pro { border-left: 3px solid var(--success); }
+        .pro-con-item.con { border-left: 3px solid var(--danger); }
+        .pro-con-item button { background: none; border: none; color: var(--gray); cursor: pointer; font-size: 1.1rem; }
+
+        .add-item { display: flex; gap: 8px; }
+        .add-item input { flex: 1; }
+
         .ai-suggestions {
-            background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(255, 107, 107, 0.1));
+            background: linear-gradient(135deg, rgba(78,205,196,.1), rgba(255,107,107,.1));
             border-radius: 15px;
-            padding: 20px;
-            margin-top: 20px;
+            padding: 16px;
+            margin-top: 16px;
+            display: none;
         }
-        
-        .ai-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: linear-gradient(135deg, var(--secondary), #26de81);
+        .ai-badge { display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(135deg, var(--secondary), #26de81); color: #fff; padding: 5px 11px; border-radius: 20px; font-size: .8rem; font-weight: 600; margin-bottom: 10px; }
+        .suggestion-item { padding: 10px; background: rgba(255,255,255,.05); border-radius: 10px; margin-bottom: 8px; cursor: pointer; }
+
+        .preview { background: #fff; color: #333; border-radius: 15px; padding: 24px; min-height: 360px; }
+        .preview-header { border-bottom: 2px solid #eee; padding-bottom: 16px; margin-bottom: 16px; }
+        .preview-title { font-size: 1.6rem; font-weight: 700; margin-bottom: 8px; }
+        .preview-rating { color: #ffd700; font-size: 1.4rem; letter-spacing: 2px; }
+        .preview-category { display: inline-block; background: var(--primary); color: white; padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; margin-top: 8px; }
+
+        .preview-pros, .preview-cons { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+        .preview-pros span { background: rgba(0,184,148,.1); color: var(--success); padding: 5px 10px; border-radius: 20px; font-size: .88rem; }
+        .preview-cons span { background: rgba(255,107,107,.1); color: var(--primary); padding: 5px 10px; border-radius: 20px; font-size: .88rem; }
+
+        .export-options { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+        .full-width { grid-column: 1 / -1; }
+
+        .toast-wrap {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .toast {
+            background: rgba(0,0,0,.85);
             color: #fff;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-        
-        .suggestion-item {
-            padding: 12px;
-            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255,255,255,.2);
             border-radius: 10px;
-            margin-bottom: 10px;
-            cursor: pointer;
-            transition: background 0.3s;
+            padding: 10px 12px;
+            min-width: 220px;
         }
-        
-        .suggestion-item:hover {
-            background: rgba(255, 255, 255, 0.1);
+        .toast.success { border-color: rgba(0,184,148,.6); }
+        .toast.error { border-color: rgba(255,118,117,.6); }
+
+        .login-gate {
+            max-width: 420px;
+            margin: 10vh auto;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255,255,255,.2);
+            border-radius: 16px;
+            padding: 24px;
         }
-        
-        .suggestion-item input {
-            width: auto;
-            margin-right: 10px;
-        }
-        
-        /* Review Preview */
-        .preview {
-            background: #fff;
-            color: #333;
-            border-radius: 15px;
-            padding: 30px;
-            min-height: 400px;
-        }
-        
-        .preview-header {
-            border-bottom: 2px solid #eee;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .preview-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        
-        .preview-rating {
-            color: #ffd700;
-            font-size: 1.5rem;
-            letter-spacing: 3px;
-        }
-        
-        .preview-category {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-top: 10px;
-        }
-        
-        .preview-section {
-            margin-bottom: 20px;
-        }
-        
-        .preview-section h3 {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            color: var(--dark);
-        }
-        
-        .preview-pros {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 10px;
-        }
-        
-        .preview-pros span {
-            background: rgba(0, 184, 148, 0.1);
-            color: var(--success);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-        
-        .preview-cons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        
-        .preview-cons span {
-            background: rgba(255, 107, 107, 0.1);
-            color: var(--primary);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-        
-        .preview-body {
-            line-height: 1.8;
-            color: #555;
-        }
-        
-        /* Animations */
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        
-        .generating {
-            animation: pulse 1.5s infinite;
-        }
-        
-        /* Export Modal */
-        .export-options {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .full-width {
-            grid-column: 1 / -1;
-        }
+
+        .hidden { display: none !important; }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="toast-wrap" id="toastWrap"></div>
+
+    <div class="login-gate hidden" id="loginGate">
+        <h2 style="margin-bottom:12px;">🔐 Private Access</h2>
+        <p style="margin-bottom:14px;color:#dfe6e9;">Enter password to access caption studio.</p>
+        <input id="passwordInput" type="password" placeholder="Password" autocomplete="current-password">
+        <button class="btn btn-primary" id="loginBtn" style="margin-top:12px;width:100%;justify-content:center;">Sign in</button>
+    </div>
+
+    <div class="container hidden" id="appRoot">
         <header>
             <div class="logo">🎬 Review Studio</div>
             <p class="tagline">AI-Powered Review Creation for Tony Reviews Things</p>
         </header>
-        
+
         <div class="main-grid">
-            <!-- Input Section -->
             <div class="card">
-                <div class="card-title"><span>📝</span> Product Details</div>
-                
-                <div class="form-group">
-                    <label>Product Name</label>
-                    <input type="text" id="productName" placeholder="e.g., Sony WH-1000XM5 Headphones">
-                </div>
-                
+                <div class="card-title">📝 Product Details</div>
+                <div class="form-group"><label>Product Name</label><input type="text" id="productName" placeholder="e.g., Sony WH-1000XM5 Headphones"></div>
                 <div class="form-group">
                     <label>Category</label>
                     <select id="category">
                         <option value="">Select category...</option>
-                        <option value="tech">Tech & Gadgets</option>
-                        <option value="audio">Audio</option>
-                        <option value="gaming">Gaming</option>
-                        <option value="home">Home & Living</option>
-                        <option value="fashion">Fashion</option>
-                        <option value="food">Food & Drinks</option>
-                        <option value="software">Software & Apps</option>
-                        <option value="other">Other</option>
+                        <option value="tech">Tech & Gadgets</option><option value="audio">Audio</option><option value="gaming">Gaming</option><option value="home">Home & Living</option>
+                        <option value="fashion">Fashion</option><option value="food">Food & Drinks</option><option value="software">Software & Apps</option><option value="other">Other</option>
                     </select>
                 </div>
-                
                 <div class="form-group">
-                    <label>Your Rating</label>
+                    <label>Your Rating (optional)</label>
                     <div class="star-rating">
                         <input type="radio" name="rating" value="5" id="star5"><label for="star5">★</label>
                         <input type="radio" name="rating" value="4" id="star4"><label for="star4">★</label>
@@ -441,497 +203,383 @@
                         <input type="radio" name="rating" value="1" id="star1"><label for="star1">★</label>
                     </div>
                 </div>
-                
-                <div class="form-group">
-                    <label>Key Features (comma-separated)</label>
-                    <input type="text" id="features" placeholder="e.g., noise cancellation, 30hr battery, premium sound">
-                </div>
+                <div class="form-group"><label>Key Features (comma-separated)</label><input type="text" id="features" placeholder="noise cancellation, 30hr battery, premium sound"></div>
             </div>
-            
-            <!-- Pros & Cons -->
+
             <div class="card">
-                <div class="card-title"><span>⚖️</span> Pros & Cons</div>
-                
+                <div class="card-title">⚖️ Pros & Cons</div>
                 <div class="pros-cons">
                     <div>
                         <label style="color: var(--success);">✓ Pros</label>
                         <div id="prosList"></div>
-                        <div class="add-item">
-                            <input type="text" id="proInput" placeholder="Add a pro...">
-                            <button class="btn btn-secondary" onclick="addPro()">+</button>
-                        </div>
+                        <div class="add-item"><input type="text" id="proInput" placeholder="Add a pro..."><button class="btn btn-secondary" id="addProBtn" type="button">+</button></div>
                     </div>
                     <div>
                         <label style="color: var(--primary);">✗ Cons</label>
                         <div id="consList"></div>
-                        <div class="add-item">
-                            <input type="text" id="conInput" placeholder="Add a con...">
-                            <button class="btn btn-secondary" onclick="addCon()">+</button>
-                        </div>
+                        <div class="add-item"><input type="text" id="conInput" placeholder="Add a con..."><button class="btn btn-secondary" id="addConBtn" type="button">+</button></div>
                     </div>
                 </div>
-                
-                <div class="ai-suggestions" id="aiSection" style="display: none;">
-                    <div class="ai-badge">🤖 AI Suggestions</div>
+
+                <div class="ai-suggestions" id="aiSection">
+                    <div class="ai-badge">🤖 Gemini Suggestions</div>
                     <div id="suggestions"></div>
                 </div>
-                
-                <button class="btn btn-primary" style="margin-top: 20px; width: 100%;" onclick="generateSuggestions()">
-                    <span>✨</span> Get AI Suggestions
-                </button>
+                <button class="btn btn-primary" id="aiBtn" style="margin-top: 14px; width: 100%; justify-content:center;" type="button">✨ Get AI Suggestions</button>
             </div>
-            
-            <!-- Review Content -->
+
             <div class="card full-width">
-                <div class="card-title"><span>📄</span> Your Review</div>
-                
-                <div class="form-group">
-                    <label>Review Summary (hook)</label>
-                    <input type="text" id="summary" placeholder="A catchy opening that grabs attention...">
-                </div>
-                
-                <div class="form-group">
-                    <label>Detailed Review</label>
-                    <textarea id="reviewBody" placeholder="Write your in-depth review here..."></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label>Final Verdict</label>
-                    <textarea id="verdict" placeholder="Your final thoughts and recommendation..." style="min-height: 80px;"></textarea>
-                </div>
+                <div class="card-title">📄 Your Review</div>
+                <div class="form-group"><label>Review Summary (hook)</label><input type="text" id="summary" placeholder="A catchy opening that grabs attention..."></div>
+                <div class="form-group"><label>Detailed Review</label><textarea id="reviewBody" placeholder="Write your in-depth review here..."></textarea></div>
+                <div class="form-group"><label>Final Verdict</label><textarea id="verdict" placeholder="Your final thoughts and recommendation..." style="min-height: 80px;"></textarea></div>
             </div>
-            
-            <!-- Preview -->
+
             <div class="card full-width">
-                <div class="card-title"><span>👁️</span> Live Preview</div>
-                
+                <div class="card-title">👁️ Live Preview</div>
                 <div class="preview" id="preview">
                     <div class="preview-header">
                         <div class="preview-title" id="previewTitle">Your Product Name</div>
-                        <div class="preview-rating" id="previewRating">★★★★★</div>
-                        <span class="preview-category" id="previewCategory">Category</span>
+                        <div class="preview-rating" id="previewRating">No rating yet</div>
+                        <span class="preview-category" id="previewCategory">Uncategorized</span>
                     </div>
-                    
-                    <div class="preview-section" id="previewSummarySection" style="display: none;">
-                        <h3>Summary</h3>
-                        <p id="previewSummary"></p>
-                    </div>
-                    
-                    <div class="preview-section" id="previewProsCons" style="display: none;">
-                        <h3>Pros & Cons</h3>
-                        <div class="preview-pros" id="previewPros"></div>
-                        <div class="preview-cons" id="previewCons"></div>
-                    </div>
-                    
-                    <div class="preview-section" id="previewBodySection" style="display: none;">
-                        <h3>The Review</h3>
-                        <div class="preview-body" id="previewBodyText"></div>
-                    </div>
-                    
-                    <div class="preview-section" id="previewVerdictSection" style="display: none;">
-                        <h3>Verdict</h3>
-                        <p id="previewVerdictText"></p>
-                    </div>
+                    <div class="preview-section" id="previewSummarySection" style="display:none;"><h3>Summary</h3><p id="previewSummary"></p></div>
+                    <div class="preview-section" id="previewProsCons" style="display:none;"><h3>Pros & Cons</h3><div class="preview-pros" id="previewPros"></div><div class="preview-cons" id="previewCons"></div></div>
+                    <div class="preview-section" id="previewBodySection" style="display:none;"><h3>The Review</h3><div class="preview-body" id="previewBodyText"></div></div>
+                    <div class="preview-section" id="previewVerdictSection" style="display:none;"><h3>Verdict</h3><p id="previewVerdictText"></p></div>
                 </div>
-                
+
                 <div class="export-options">
-                    <button class="btn btn-secondary" onclick="copyToClipboard()">
-                        <span>📋</span> Copy to Clipboard
-                    </button>
-                    <button class="btn btn-secondary" onclick="downloadText()">
-                        <span>📥</span> Download .txt
-                    </button>
-                    <button class="btn btn-secondary" onclick="downloadMarkdown()">
-                        <span>📝</span> Download .md
-                    </button>
-                    <button class="btn btn-primary" onclick="copyForSocial()">
-                        <span>🐦</span> Social Media Version
-                    </button>
+                    <button class="btn btn-secondary" id="copyBtn" type="button">📋 Copy to Clipboard</button>
+                    <button class="btn btn-secondary" id="downloadTxtBtn" type="button">📥 Download .txt</button>
+                    <button class="btn btn-secondary" id="downloadMdBtn" type="button">📝 Download .md</button>
+                    <button class="btn btn-primary" id="socialBtn" type="button">🐦 Social Media Version</button>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        let pros = [];
-        let cons = [];
-        
-        // Auto-update preview on input
-        document.querySelectorAll('input, textarea, select').forEach(el => {
-            el.addEventListener('input', updatePreview);
-        });
-        
-        document.querySelectorAll('input[name="rating"]').forEach(el => {
-            el.addEventListener('change', updatePreview);
-        });
-        
-        function updatePreview() {
-            const name = document.getElementById('productName').value || 'Your Product Name';
-            document.getElementById('previewTitle').textContent = name;
-            
-            const rating = document.querySelector('input[name="rating"]:checked');
-            const ratingValue = rating ? parseInt(rating.value) : 0;
-            document.getElementById('previewRating').textContent = '★'.repeat(ratingValue) + '☆'.repeat(5 - ratingValue);
-            
-            const category = document.getElementById('category');
-            const categoryText = category.options[category.selectedIndex]?.text || 'Uncategorized';
-            document.getElementById('previewCategory').textContent = categoryText;
-            
-            // Summary
-            const summary = document.getElementById('summary').value;
-            if (summary) {
-                document.getElementById('previewSummarySection').style.display = 'block';
-                document.getElementById('previewSummary').textContent = summary;
-            } else {
-                document.getElementById('previewSummarySection').style.display = 'none';
-            }
-            
-            // Pros & Cons
-            if (pros.length > 0 || cons.length > 0) {
-                document.getElementById('previewProsCons').style.display = 'block';
-                document.getElementById('previewPros').innerHTML = pros.map(p => `<span>✓ ${p}</span>`).join('');
-                document.getElementById('previewCons').innerHTML = cons.map(c => `<span>✗ ${c}</span>`).join('');
-            } else {
-                document.getElementById('previewProsCons').style.display = 'none';
-            }
-            
-            // Body
-            const body = document.getElementById('reviewBody').value;
-            if (body) {
-                document.getElementById('previewBodySection').style.display = 'block';
-                document.getElementById('previewBodyText').textContent = body;
-            } else {
-                document.getElementById('previewBodySection').style.display = 'none';
-            }
-            
-            // Verdict
-            const verdict = document.getElementById('verdict').value;
-            if (verdict) {
-                document.getElementById('previewVerdictSection').style.display = 'block';
-                document.getElementById('previewVerdictText').textContent = verdict;
-            } else {
-                document.getElementById('previewVerdictSection').style.display = 'none';
-            }
+        const state = { pros: [], cons: [] };
+
+        const q = (id) => document.getElementById(id);
+        const escapeEmoji = (s) => s.replace(/[🎯💡✅❌🤔]/g, '').trim();
+
+        function showToast(message, type = 'success') {
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.textContent = message;
+            q('toastWrap').appendChild(toast);
+            setTimeout(() => toast.remove(), 3200);
         }
-        
-        function addPro() {
-            const input = document.getElementById('proInput');
-            if (input.value.trim()) {
-                pros.push(input.value.trim());
-                renderProsCons();
-                input.value = '';
-                updatePreview();
-            }
-        }
-        
-        function addCon() {
-            const input = document.getElementById('conInput');
-            if (input.value.trim()) {
-                cons.push(input.value.trim());
-                renderProsCons();
-                input.value = '';
-                updatePreview();
-            }
-        }
-        
-        function removePro(index) {
-            pros.splice(index, 1);
-            renderProsCons();
-            updatePreview();
-        }
-        
-        function removeCon(index) {
-            cons.splice(index, 1);
-            renderProsCons();
-            updatePreview();
-        }
-        
-        function renderProsCons() {
-            document.getElementById('prosList').innerHTML = pros.map((p, i) => `
-                <div class="pro-con-item pro">
-                    <span>✓ ${p}</span>
-                    <button onclick="removePro(${i})">×</button>
-                </div>
-            `).join('');
-            
-            document.getElementById('consList').innerHTML = cons.map((c, i) => `
-                <div class="pro-con-item con">
-                    <span>✗ ${c}</span>
-                    <button onclick="removeCon(${i})">×</button>
-                </div>
-            `).join('');
-        }
-        
-        // AI Suggestions - Simulated AI based on product category
-        const suggestionsByCategory = {
-            tech: [
-                "How does it compare to competitors in the same price range?",
-                "What's the build quality like? Does it feel premium?",
-                "How intuitive is the user interface?",
-                "Any standout features that competitors lack?",
-                "How's the battery life in real-world usage?",
-                "Is there a learning curve for new users?"
-            ],
-            audio: [
-                "How's the sound signature? (Bass-heavy, balanced, bright?)",
-                "How effective is the noise cancellation?",
-                "Comfort level for extended listening sessions?",
-                "Any latency issues for video/gaming?",
-                "How's the microphone quality for calls?",
-                "What's the real-world battery life?"
-            ],
-            gaming: [
-                "How's the performance in demanding titles?",
-                "Any notable features for competitive play?",
-                "How's the build quality and durability?",
-                "Is the price justified for the features?",
-                "Any compatibility issues?",
-                "How's the ergonomics for long sessions?"
-            ],
-            home: [
-                "How easy is it to set up and use?",
-                "Does it actually save time or money?",
-                "How's the build quality for the price?",
-                "Any smart home integration?",
-                "What's the maintenance like?",
-                "Does it look good in a living space?"
-            ],
-            food: [
-                "What's the taste profile?",
-                "Is it worth the premium price?",
-                "How does it compare to cheaper alternatives?",
-                "Any unique ingredients or preparation?",
-                "Would you buy it again?",
-                "Who would you recommend this to?"
-            ],
-            software: [
-                "How steep is the learning curve?",
-                "What's the value for the price?",
-                "How often does it get updates?",
-                "Any privacy concerns?",
-                "How's the customer support?",
-                "Does it integrate with other tools?"
-            ],
-            other: [
-                "What problem does it solve?",
-                "Is it worth the investment?",
-                "How does it compare to alternatives?",
-                "Who is this best for?",
-                "Any standout features?",
-                "Would you recommend it?"
-            ]
-        };
-        
-        function generateSuggestions() {
-            const category = document.getElementById('category').value || 'other';
-            const productName = document.getElementById('productName').value;
-            const features = document.getElementById('features').value;
-            
-            const suggestions = suggestionsByCategory[category] || suggestionsByCategory.other;
-            
-            // Show AI section
-            document.getElementById('aiSection').style.display = 'block';
-            
-            const container = document.getElementById('suggestions');
-            container.innerHTML = '<p class="generating">🤖 Analyzing...</p>';
-            
-            // Simulate AI thinking delay
-            setTimeout(() => {
-                // Add some dynamic suggestions based on product name and features
-                let dynamicSuggestions = [...suggestions];
-                
-                if (productName) {
-                    dynamicSuggestions.unshift(`🎯 What first impressed you about the ${productName}?`);
+
+        async function checkSession() {
+            try {
+                const res = await fetch('/api/auth/session', { credentials: 'include' });
+                if (res.ok) {
+                    q('appRoot').classList.remove('hidden');
+                    return;
                 }
-                
-                if (features) {
-                    const featureList = features.split(',').map(f => f.trim());
-                    if (featureList.length > 0) {
-                        dynamicSuggestions.splice(2, 0, `💡 How well does "${featureList[0]}" actually perform?`);
-                    }
-                }
-                
-                container.innerHTML = dynamicSuggestions.map((s, i) => `
-                    <div class="suggestion-item" onclick="addSuggestion('${s.replace(/'/g, "\\'")}')">
-                        ${s}
-                    </div>
-                `).join('');
-                
-                // Auto-add some common suggestions to review body
-                if (!document.getElementById('reviewBody').value) {
-                    document.getElementById('reviewBody').value = dynamicSuggestions.slice(0, 3).map(s => 
-                        s.replace(/🎯|💡|✅|❌|🤔/g, '').trim() + '\n'
-                    ).join('\n');
+            } catch (_) {}
+            q('loginGate').classList.remove('hidden');
+        }
+
+        async function login() {
+            const password = q('passwordInput').value;
+            if (!password) return showToast('Password required', 'error');
+            try {
+                const res = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include',
+                    body: JSON.stringify({ password })
+                });
+                if (!res.ok) throw new Error('Invalid password');
+                q('loginGate').classList.add('hidden');
+                q('appRoot').classList.remove('hidden');
+                q('passwordInput').value = '';
+                showToast('Signed in');
+            } catch (err) {
+                showToast(err.message || 'Sign in failed', 'error');
+            }
+        }
+
+        function renderList(items, containerId, type) {
+            const container = q(containerId);
+            container.replaceChildren();
+            items.forEach((text, index) => {
+                const row = document.createElement('div');
+                row.className = `pro-con-item ${type}`;
+                const span = document.createElement('span');
+                span.className = 'pro-con-text';
+                span.textContent = `${type === 'pro' ? '✓' : '✗'} ${text}`;
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.textContent = '×';
+                btn.setAttribute('aria-label', `Remove ${type}`);
+                btn.addEventListener('click', () => {
+                    if (type === 'pro') state.pros.splice(index, 1);
+                    else state.cons.splice(index, 1);
+                    renderProsCons();
                     updatePreview();
-                }
-            }, 800);
+                });
+                row.append(span, btn);
+                container.appendChild(row);
+            });
         }
-        
-        function addSuggestion(text) {
-            const cleanText = text.replace(/🎯|💡|✅|❌|🤔/g, '').trim();
-            const current = document.getElementById('reviewBody').value;
-            document.getElementById('reviewBody').value = current + (current ? '\n\n' : '') + cleanText + ': \n';
-            document.getElementById('reviewBody').focus();
+
+        function renderProsCons() {
+            renderList(state.pros, 'prosList', 'pro');
+            renderList(state.cons, 'consList', 'con');
+        }
+
+        function getRatingData() {
+            const ratingEl = document.querySelector('input[name="rating"]:checked');
+            const rating = ratingEl ? Number(ratingEl.value) : null;
+            return { rating, stars: rating ? `${'★'.repeat(rating)}${'☆'.repeat(5 - rating)}` : 'No rating yet' };
+        }
+
+        function selectedCategoryText() {
+            const category = q('category');
+            const value = category.value;
+            if (!value) return '';
+            return category.options[category.selectedIndex]?.text || '';
+        }
+
+        function updatePreview() {
+            q('previewTitle').textContent = q('productName').value || 'Your Product Name';
+            const { stars } = getRatingData();
+            q('previewRating').textContent = stars;
+
+            const categoryText = selectedCategoryText() || 'Uncategorized';
+            q('previewCategory').textContent = categoryText;
+
+            const summary = q('summary').value.trim();
+            q('previewSummarySection').style.display = summary ? 'block' : 'none';
+            q('previewSummary').textContent = summary;
+
+            const hasProsCons = state.pros.length > 0 || state.cons.length > 0;
+            q('previewProsCons').style.display = hasProsCons ? 'block' : 'none';
+
+            const previewPros = q('previewPros');
+            previewPros.replaceChildren();
+            state.pros.forEach((p) => {
+                const span = document.createElement('span');
+                span.textContent = `✓ ${p}`;
+                previewPros.appendChild(span);
+            });
+
+            const previewCons = q('previewCons');
+            previewCons.replaceChildren();
+            state.cons.forEach((c) => {
+                const span = document.createElement('span');
+                span.textContent = `✗ ${c}`;
+                previewCons.appendChild(span);
+            });
+
+            const body = q('reviewBody').value.trim();
+            q('previewBodySection').style.display = body ? 'block' : 'none';
+            q('previewBodyText').textContent = body;
+
+            const verdict = q('verdict').value.trim();
+            q('previewVerdictSection').style.display = verdict ? 'block' : 'none';
+            q('previewVerdictText').textContent = verdict;
+        }
+
+        function appendSuggestion(text) {
+            const clean = escapeEmoji(text);
+            const current = q('reviewBody').value.trim();
+            q('reviewBody').value = `${current}${current ? '\n\n' : ''}${clean}: \n`;
+            q('reviewBody').focus();
             updatePreview();
         }
-        
-        function copyToClipboard() {
-            const text = generateFullReview();
-            navigator.clipboard.writeText(text).then(() => {
-                alert('✓ Review copied to clipboard!');
-            });
-        }
-        
-        function downloadText() {
-            const text = generateFullReview();
-            const blob = new Blob([text], { type: 'text/plain' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `${document.getElementById('productName').value || 'review'}.txt`;
-            a.click();
-            URL.revokeObjectURL(url);
-        }
-        
-        function downloadMarkdown() {
-            const md = generateMarkdown();
-            const blob = new Blob([md], { type: 'text/markdown' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `${document.getElementById('productName').value || 'review'}.md`;
-            a.click();
-            URL.revokeObjectURL(url);
-        }
-        
-        function copyForSocial() {
-            const name = document.getElementById('productName').value || 'This product';
-            const rating = document.querySelector('input[name="rating"]:checked')?.value || '5';
-            const summary = document.getElementById('summary').value || '';
-            const prosPreview = pros.slice(0, 3).join(', ');
-            const consPreview = cons.slice(0, 2).join(', ');
-            
-            let social = `📱 ${name} Review\n\n`;
-            social += `${'⭐'.repeat(parseInt(rating))}${'☆'.repeat(5 - parseInt(rating))}\n\n`;
-            if (summary) {
-                social += `${summary}\n\n`;
+
+        async function generateSuggestions() {
+            q('aiBtn').disabled = true;
+            q('aiSection').style.display = 'block';
+            const suggestions = q('suggestions');
+            suggestions.textContent = '🤖 Gemini is thinking...';
+
+            const payload = {
+                category: q('category').value || 'other',
+                productName: q('productName').value.trim(),
+                features: q('features').value.trim()
+            };
+
+            try {
+                const res = await fetch('/api/ai/suggestions', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include',
+                    body: JSON.stringify(payload)
+                });
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.error || 'Could not generate suggestions');
+
+                suggestions.replaceChildren();
+                data.suggestions.forEach((s) => {
+                    const item = document.createElement('div');
+                    item.className = 'suggestion-item';
+                    item.textContent = s;
+                    item.addEventListener('click', () => appendSuggestion(s));
+                    suggestions.appendChild(item);
+                });
+
+                if (!q('reviewBody').value.trim() && data.suggestions.length) {
+                    q('reviewBody').value = data.suggestions.slice(0, 3).map(escapeEmoji).join('\n\n');
+                }
+                updatePreview();
+                showToast('Suggestions ready');
+            } catch (err) {
+                suggestions.textContent = 'Could not load suggestions.';
+                showToast(err.message || 'Suggestion generation failed', 'error');
+            } finally {
+                q('aiBtn').disabled = false;
             }
-            if (pros.length > 0) {
-                social += `✅ Pros: ${prosPreview}\n`;
-            }
-            if (cons.length > 0) {
-                social += `❌ Cons: ${consPreview}\n`;
-            }
-            social += `\n#TonyReviewsThings #Review`;
-            
-            navigator.clipboard.writeText(social).then(() => {
-                alert('✓ Social media version copied!');
-            });
         }
-        
+
         function generateFullReview() {
-            const name = document.getElementById('productName').value || 'Product';
-            const rating = document.querySelector('input[name="rating"]:checked')?.value || 'N/A';
-            const category = document.getElementById('category').options[document.getElementById('category').selectedIndex]?.text || '';
-            const summary = document.getElementById('summary').value;
-            const body = document.getElementById('reviewBody').value;
-            const verdict = document.getElementById('verdict').value;
-            
-            let review = `${name} Review\n`;
-            review += `${'='.repeat(name.length + 8)}\n\n`;
-            review += `Rating: ${'★'.repeat(parseInt(rating))}${'☆'.repeat(5 - parseInt(rating))} (${rating}/5)\n`;
-            if (category) review += `Category: ${category}\n`;
-            review += `\n`;
-            
-            if (summary) {
-                review += `SUMMARY\n`;
-                review += `${'-'.repeat(7)}\n`;
-                review += `${summary}\n\n`;
-            }
-            
-            if (pros.length > 0 || cons.length > 0) {
-                review += `PROS & CONS\n`;
-                review += `${'-'.repeat(11)}\n`;
-                if (pros.length > 0) {
-                    review += `Pros:\n`;
-                    pros.forEach(p => review += `  ✓ ${p}\n`);
+            const name = q('productName').value.trim() || 'Product';
+            const { rating, stars } = getRatingData();
+            const category = selectedCategoryText();
+            const summary = q('summary').value.trim();
+            const body = q('reviewBody').value.trim();
+            const verdict = q('verdict').value.trim();
+
+            let out = `${name} Review\n${'='.repeat(name.length + 8)}\n\n`;
+            out += rating ? `Rating: ${stars} (${rating}/5)\n` : 'Rating: Not rated\n';
+            if (category) out += `Category: ${category}\n`;
+            out += '\n';
+
+            if (summary) out += `SUMMARY\n-------\n${summary}\n\n`;
+
+            if (state.pros.length || state.cons.length) {
+                out += 'PROS & CONS\n-----------\n';
+                if (state.pros.length) {
+                    out += 'Pros:\n';
+                    state.pros.forEach((p) => { out += `  ✓ ${p}\n`; });
                 }
-                if (cons.length > 0) {
-                    review += `\nCons:\n`;
-                    cons.forEach(c => review += `  ✗ ${c}\n`);
+                if (state.cons.length) {
+                    out += '\nCons:\n';
+                    state.cons.forEach((c) => { out += `  ✗ ${c}\n`; });
                 }
-                review += `\n`;
+                out += '\n';
             }
-            
-            if (body) {
-                review += `THE REVIEW\n`;
-                review += `${'-'.repeat(11)}\n`;
-                review += `${body}\n\n`;
-            }
-            
-            if (verdict) {
-                review += `VERDICT\n`;
-                review += `${'-'.repeat(6)}\n`;
-                review += `${verdict}\n`;
-            }
-            
-            return review;
+
+            if (body) out += `THE REVIEW\n----------\n${body}\n\n`;
+            if (verdict) out += `VERDICT\n-------\n${verdict}\n`;
+            return out;
         }
-        
+
         function generateMarkdown() {
-            const name = document.getElementById('productName').value || 'Product';
-            const rating = document.querySelector('input[name="rating"]:checked')?.value || 'N/A';
-            const category = document.getElementById('category').options[document.getElementById('category').selectedIndex]?.text || '';
-            const summary = document.getElementById('summary').value;
-            const body = document.getElementById('reviewBody').value;
-            const verdict = document.getElementById('verdict').value;
-            
+            const name = q('productName').value.trim() || 'Product';
+            const { rating, stars } = getRatingData();
+            const category = selectedCategoryText();
+            const summary = q('summary').value.trim();
+            const body = q('reviewBody').value.trim();
+            const verdict = q('verdict').value.trim();
+
             let md = `# ${name} Review\n\n`;
-            md += `**Rating:** ${'★'.repeat(parseInt(rating))}${'☆'.repeat(5 - parseInt(rating))} (${rating}/5)\n`;
+            md += rating ? `**Rating:** ${stars} (${rating}/5)\n` : '**Rating:** Not rated\n';
             if (category) md += `**Category:** ${category}\n`;
-            md += `\n---\n\n`;
-            
-            if (summary) {
-                md += `## Summary\n\n${summary}\n\n`;
+            md += '\n---\n\n';
+            if (summary) md += `## Summary\n\n${summary}\n\n`;
+            if (state.pros.length || state.cons.length) {
+                md += '## Pros & Cons\n\n';
+                if (state.pros.length) md += `### ✅ Pros\n${state.pros.map((p) => `- ${p}`).join('\n')}\n\n`;
+                if (state.cons.length) md += `### ❌ Cons\n${state.cons.map((c) => `- ${c}`).join('\n')}\n\n`;
             }
-            
-            if (pros.length > 0 || cons.length > 0) {
-                md += `## Pros & Cons\n\n`;
-                if (pros.length > 0) {
-                    md += `### ✅ Pros\n`;
-                    pros.forEach(p => md += `- ${p}\n`);
-                }
-                if (cons.length > 0) {
-                    md += `\n### ❌ Cons\n`;
-                    cons.forEach(c => md += `- ${c}\n`);
-                }
-                md += `\n`;
-            }
-            
-            if (body) {
-                md += `## The Review\n\n${body}\n\n`;
-            }
-            
-            if (verdict) {
-                md += `## Verdict\n\n${verdict}\n`;
-            }
-            
-            md += `\n---\n*Review by Tony Reviews Things*`;
-            
+            if (body) md += `## The Review\n\n${body}\n\n`;
+            if (verdict) md += `## Verdict\n\n${verdict}\n\n`;
+            md += '---\n*Review by Tony Reviews Things*';
             return md;
         }
-        
-        // Enter key support for inputs
-        document.getElementById('proInput').addEventListener('keypress', e => {
-            if (e.key === 'Enter') addPro();
-        });
-        
-        document.getElementById('conInput').addEventListener('keypress', e => {
-            if (e.key === 'Enter') addCon();
-        });
-        
-        // Initial render
+
+        function download(content, ext, type) {
+            const name = (q('productName').value.trim() || 'review').replace(/[^a-z0-9-_]/gi, '_').toLowerCase();
+            const blob = new Blob([content], { type });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${name}.${ext}`;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            URL.revokeObjectURL(url);
+        }
+
+        async function copyTextWithFallback(text) {
+            try {
+                if (navigator.clipboard?.writeText) {
+                    await navigator.clipboard.writeText(text);
+                    return true;
+                }
+            } catch (_) {}
+
+            const temp = document.createElement('textarea');
+            temp.value = text;
+            temp.style.position = 'fixed';
+            temp.style.opacity = '0';
+            document.body.appendChild(temp);
+            temp.select();
+            try {
+                const ok = document.execCommand('copy');
+                temp.remove();
+                return ok;
+            } catch (_) {
+                temp.remove();
+                return false;
+            }
+        }
+
+        async function copyReview() {
+            const ok = await copyTextWithFallback(generateFullReview());
+            showToast(ok ? 'Review copied' : 'Copy failed. Try manual copy.', ok ? 'success' : 'error');
+        }
+
+        async function copyForSocial() {
+            const { rating, stars } = getRatingData();
+            const name = q('productName').value.trim() || 'This product';
+            const summary = q('summary').value.trim();
+            let text = `📱 ${name} Review\n\n`;
+            text += `${rating ? stars : 'No rating yet'}\n\n`;
+            if (summary) text += `${summary}\n\n`;
+            if (state.pros.length) text += `✅ Pros: ${state.pros.slice(0,3).join(', ')}\n`;
+            if (state.cons.length) text += `❌ Cons: ${state.cons.slice(0,2).join(', ')}\n`;
+            text += '\n#TonyReviewsThings #Review';
+            const ok = await copyTextWithFallback(text);
+            showToast(ok ? 'Social copy ready' : 'Copy failed. Try manual copy.', ok ? 'success' : 'error');
+        }
+
+        function addItem(type) {
+            const input = q(type === 'pro' ? 'proInput' : 'conInput');
+            const value = input.value.trim();
+            if (!value) return;
+            if (type === 'pro') state.pros.push(value); else state.cons.push(value);
+            input.value = '';
+            renderProsCons();
+            updatePreview();
+        }
+
+        document.querySelectorAll('input, textarea, select').forEach((el) => el.addEventListener('input', updatePreview));
+        document.querySelectorAll('input[name="rating"]').forEach((el) => el.addEventListener('change', updatePreview));
+
+        q('addProBtn').addEventListener('click', () => addItem('pro'));
+        q('addConBtn').addEventListener('click', () => addItem('con'));
+        q('proInput').addEventListener('keypress', (e) => { if (e.key === 'Enter') addItem('pro'); });
+        q('conInput').addEventListener('keypress', (e) => { if (e.key === 'Enter') addItem('con'); });
+
+        q('aiBtn').addEventListener('click', generateSuggestions);
+        q('copyBtn').addEventListener('click', copyReview);
+        q('downloadTxtBtn').addEventListener('click', () => download(generateFullReview(), 'txt', 'text/plain'));
+        q('downloadMdBtn').addEventListener('click', () => download(generateMarkdown(), 'md', 'text/markdown'));
+        q('socialBtn').addEventListener('click', copyForSocial);
+        q('loginBtn').addEventListener('click', login);
+        q('passwordInput').addEventListener('keypress', (e) => { if (e.key === 'Enter') login(); });
+
         renderProsCons();
+        updatePreview();
+        checkSession();
     </script>
 </body>
 </html>

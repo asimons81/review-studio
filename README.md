@@ -1,61 +1,83 @@
-# 🎬 Review Studio
+# 🎬 Review Studio (Caption Studio)
 
-AI-Powered Review Creation Tool for **Tony Reviews Things**
+Private, Gemini-powered review writer for **captions.tonyreviewsthings.com**.
 
-## Features
+## What changed
 
-- **Product Details Input** - Name, category, rating system
-- **Pros & Cons Builder** - Interactive list with easy add/remove
-- **AI Suggestions** - Category-specific questions and talking points to help structure your review
-- **Live Preview** - See your review update in real-time with a polished, professional format
-- **Multiple Export Options**:
-  - Copy to clipboard
-  - Download as .txt
-  - Download as .markdown (great for blogs!)
-  - Social media optimized version
+- ✅ Rating is now optional (exports never crash)
+- ✅ Removed unsafe HTML rendering and inline event handlers
+- ✅ Gemini-backed suggestions via secure server endpoint
+- ✅ Private login gate for single-user deployment
+- ✅ Clipboard copy has fallback + toast notifications
+- ✅ Mobile pros/cons layout fixed
 
-## Usage
+## Local run
 
-Simply open `index.html` in any modern web browser - no server required!
+This app now uses serverless API routes for auth + Gemini.
 
 ```bash
-# Just double-click or open in browser
-open index.html
+# from project root
+vercel dev
 ```
 
-Or serve it locally:
+Then open http://localhost:3000
+
+## Environment variables
+
+Set these in `.env.local` (local) and Vercel project env vars (production):
 
 ```bash
-npx serve .
+# Required for login gate
+APP_PASSWORD="your-strong-password"
+
+# Required for signed auth cookie
+AUTH_SECRET="long-random-secret"
+
+# Gemini key (any one works)
+GEMINI_API_KEY="..."
+# or GOOGLE_API_KEY="..."
+# or GOOGLE_GEMINI_API_KEY="..."
+
+# Optional Gemini model override
+GEMINI_MODEL="gemini-1.5-flash"
 ```
 
-## Categories Supported
+### Env fallback behavior
 
-- Tech & Gadgets
-- Audio
-- Gaming
-- Home & Living
-- Fashion
-- Food & Drinks
-- Software & Apps
-- Other
+- API key: `GEMINI_API_KEY` → `GOOGLE_API_KEY` → `GOOGLE_GEMINI_API_KEY`
+- App password: `APP_PASSWORD` → `CAPTION_APP_PASSWORD` → `CAPTION_PASSWORD`
+- Auth secret: `AUTH_SECRET` → `CAPTION_AUTH_SECRET`
 
-## How It Works
+## Deploy to Vercel
 
-1. **Enter product details** - Name, select category, give a star rating
-2. **Add features** - Key product features (comma-separated)
-3. **Build pros & cons** - Click + to add items
-4. **Get AI suggestions** - Click "Get AI Suggestions" for category-specific questions
-5. **Write your review** - Use the suggestions or write your own
-6. **Export** - Choose your preferred format!
+1. Import this repo in Vercel.
+2. Add env vars above.
+3. Deploy.
+4. Point `captions.tonyreviewsthings.com` to this Vercel project.
 
-## Tech Stack
+## Security notes
 
-- Pure HTML/CSS/JS (no dependencies)
-- Modern CSS with backdrop-filter blur effects
-- Responsive design (works on mobile)
-- Local storage ready (can be extended)
+- Suggestions endpoint requires valid auth cookie.
+- Login uses constant-time password comparison.
+- Auth cookie is `HttpOnly`, `Secure`, `SameSite=Strict`.
+- User-provided text is rendered with safe DOM APIs (`textContent`, `createElement`).
+- Inline `onclick` handlers were removed.
+
+## API endpoints
+
+- `POST /api/auth/login` — login and set auth cookie
+- `GET /api/auth/session` — check auth session
+- `POST /api/ai/suggestions` — Gemini suggestions (with graceful fallback)
+
+## QA checklist
+
+- [x] No rating selected → exports as `Rating: Not rated`
+- [x] XSS payload in pros/cons appears as text (not executed)
+- [x] XSS payload in suggestions appears as text (not executed)
+- [x] Mobile layout stacks pros/cons correctly
+- [x] Clipboard API failure path shows toast + fallback
+- [x] Placeholder category is not exported when unselected
 
 ---
 
-*Built with ❤️ for Tony Reviews Things*
+Built for Tony Reviews Things.
